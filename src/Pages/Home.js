@@ -50,7 +50,7 @@ function Home() {
           </h1>
         </div>
 
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-20 mt-10 ">
+        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 md:gap-20 mt-10 ">
           {top.map((item) => (
             <div key={item.id} className=" w-40 space-y-5 ">
               <img

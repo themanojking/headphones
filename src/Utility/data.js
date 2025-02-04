@@ -100,5 +100,104 @@ export const news = [
         tittle:'Smart Watch',
         price:'$20.00',
     },
+];
+
+export const Categories = [
+        {
+            id:'17',
+            img:'/Assets/headphone1.avif',
+            tittle:'Ear Muffs',
+            price:'$79.00',
+        },
+        {
+            id:'18',
+            img:'/Assets/speaker.jpg',
+            tittle:'Smart Speaker',
+            price:'$99.00',
+        },
+];
+
+export const shop =[
+    {
+        id:'19',
+        img:'/Assets/vr.jpg',
+        tittle:'VR Googles',
+        price:'$119.00',
+    },
+    {
+        id:'20',
+        img:'/Assets/airpods.jpg',
+        tittle:'Airpods Pro',
+        price:'$130.00',
+    },
+    {
+        id:'21',
+        img:'/Assets/womensmart.jpg',
+        tittle:'Smart Watch',
+        price:'$150.00',
+    },
+    {
+        id:'22',
+        img:'/Assets/stick.avif',
+        tittle:'Playing Joystick',
+        price:'$200.00',
+    },
+    {
+        id:'23',
+        img:'/Assets/stick.avif',
+        tittle:'Playing Joystick',
+        price:'$200.00',
+    },
+    {
+        id:'24',
+        img:'/Assets/airpods.jpg',
+        tittle:'Airpods Pro',
+        price:'$130.00',
+    },
+    {
+        id:'25',
+        img:'/Assets/headphone1.avif',
+        tittle:'Ear Muffs',
+        price:'$79.00',
+    },
+    {
+        id:'26',
+        img:'/Assets/speaker.jpg',
+        tittle:'Smart Speaker',
+        price:'$99.00',
+    },
+    {
+        id:'27',
+        img:'/Assets/headphone1.avif',
+        tittle:'Ear Muffs',
+        price:'$79.00',
+    },
+    {
+        id:'28',
+        img:'/Assets/speaker.jpg',
+        tittle:'Smart Speaker',
+        price:'$99.00',
+    },
+];
+
+export const sale =[
+    {
+        id:'29',
+        img:'/Assets/speaker.jpg',
+        tittle:'Smart Speaker',
+        price:'$99.00',
+    },
+    {
+        id:'30',
+        img:'/Assets/headphone1.avif',
+        tittle:'Ear Muffs',
+        price:'$79.00',
+    },
+    {
+        id:'31',
+        img:'/Assets/airpods.jpg',
+        tittle:'Airpods Pro',
+        price:'$130.00',
+    },
 ]
 
