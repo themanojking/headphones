@@ -11,7 +11,9 @@ function Nav() {
   const cartproducts = useSelector(state =>state.cart)
 
   return (
-    <header className='flex justify-between items-center p-5 bg-white shadow-md'>
+    <>
+    <div className='fixed w-[100%] top-0 '>
+    <header className='flex justify-between  items-center p-5 bg-white shadow-md'>
       {/* Logo */}
       <div className='flex items-center gap-2'>
         <div className='text-3xl font-bold'>
@@ -59,6 +61,8 @@ function Nav() {
         </div>
       )}
     </header>
+    </div>
+    </>
   );
 }
 
