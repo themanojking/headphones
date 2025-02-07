@@ -12,7 +12,7 @@ function Nav() {
 
   return (
     <>
-    <div className='fixed w-[100%] top-0 '>
+    <div className='fixed w-[100%] '>
     <header className='flex justify-between  items-center p-5 bg-white shadow-md'>
       {/* Logo */}
       <div className='flex items-center gap-2'>
@@ -50,7 +50,7 @@ function Nav() {
       {isOpen && (
         <div className='absolute top-16 left-0 w-full bg-white shadow-md lg:hidden flex flex-col items-center gap-5 py-5 text-xl font-bold'>
           <Link to='/' onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to='/projectS' onClick={() => setIsOpen(false)}>Shop</Link>
+          <Link to='/shop' onClick={() => setIsOpen(false)}>Shop</Link>
           <Link to='/about' onClick={() => setIsOpen(false)}>About</Link>
           <Link to='/contact' onClick={() => setIsOpen(false)}>Contact</Link>
           <Link to='/cart' onClick={() => setIsOpen(false)}>

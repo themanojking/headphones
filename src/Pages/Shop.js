@@ -14,8 +14,8 @@ function Shop() {
   return (
     <>
       <Navbar />
-      <div className="p-10">
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 ">
+      <div className="lg:mx-10 p-10">
+        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 mt-20 ">
           <div className="lg:py-40 space-y-4">
             <h1 className="text-6xl font-bold">Shop Page</h1>
             <h3 className="text-xl font-semibold">
@@ -27,11 +27,11 @@ function Shop() {
               Shop Now
             </button>
           </div>
-          <div className="border shadow-lg p-2 rounded-2xl">
+          <div className="border shadow-lg lg:mt-20 mt-0 rounded-2xl">
             <img
               src="/Assets/head6.avif"
               alt="headphone"
-              className="w-[45rem]"
+              className="lg:w-[40rem] rounded-2xl "
             ></img>
           </div>
         </div>
@@ -157,9 +157,8 @@ function Shop() {
             </div>
           </div>
         </div>
-
-        <Footer/>
       </div>
+      <Footer />
     </>
   );
 }

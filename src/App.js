@@ -12,7 +12,7 @@ import Cart from './Pages/Cart';
 function App() {
   return (
     <>
-    {/* <Provider store={store}> */}
+    <div className=''>
       <BrowserRouter>
          <Routes>
            <Route path='/' element={<Home />}></Route>
@@ -22,7 +22,7 @@ function App() {
            <Route path='/cart' element={<Cart />}></Route>
          </Routes>
       </BrowserRouter>
-      {/* </Provider> */}
+      </div>
     </>
   );
 }
