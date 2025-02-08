@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Categories, sale, shop } from "../Utility/data";
 import { add } from "../Redux/cartSlice";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 function Shop() {
   const dispatch = useDispatch();
@@ -38,25 +39,41 @@ function Shop() {
 
         <div className="flex flex-wrap lg:flex-nowrap justify-center  lg:gap-48 lg:mt-20">
           <div className="py-28">
-            <div className="space-y-5">
+            <div className="">
               <h1 className="text-3xl md:text-6xl lg:text-4xl font-bold">
                 Product Categories :
               </h1>
-              <h2 className="text-xl md:text-4xl font-semibold">
-                <li>Joysticks</li>
-              </h2>
-              <h2 className="text-xl md:text-4xl font-semibold">
-                <li>Smart Watches</li>
-              </h2>
-              <h2 className="text-xl md:text-4xl font-semibold">
-                <li>Headphones</li>
-              </h2>
-              <h2 className="text-xl md:text-4xl font-semibold">
-                <li>Audio Speakers</li>
-              </h2>
-              <h2 className="text-xl md:text-4xl font-semibold">
-                <li>Virtual Reality</li>
-              </h2>
+              <div className="mt-4">
+                <Link to="/joysticks">
+                  <h2 className="text-xl md:text-4xl font-semibold">
+                    <li>Joysticks</li>
+                  </h2>
+                </Link>
+
+                <Link to="/smartwatchs">
+                  <h2 className="text-xl md:text-4xl font-semibold mt-2">
+                    <li>Smart Watches</li>
+                  </h2>
+                </Link>
+
+                <Link to="/headphones">
+                  <h2 className="text-xl md:text-4xl font-semibold mt-2">
+                    <li>Headphones</li>
+                  </h2>
+                </Link>
+
+                <Link to="/audiospeakers">
+                  <h2 className="text-xl md:text-4xl font-semibold mt-2">
+                    <li>Audio Speakers</li>
+                  </h2>
+                </Link>
+
+                <Link to="/virtualrealitys">
+                  <h2 className="text-xl md:text-4xl font-semibold mt-2">
+                    <li>Virtual Reality</li>
+                  </h2>
+                </Link>
+              </div>
             </div>
           </div>
           <div>
