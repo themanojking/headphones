@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar";
 import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { joysticks } from "../../Utility/data";
+import Footer from '../../Components/Footer';
 
 
 function Joysticks() {
@@ -48,6 +49,7 @@ function Joysticks() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

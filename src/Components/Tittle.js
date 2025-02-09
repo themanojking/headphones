@@ -11,7 +11,6 @@ const Title = ({ title, subtitle}) => {
            <div>
            <Footpro />
            </div>
-          
           </div>
           
 

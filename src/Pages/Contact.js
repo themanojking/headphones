@@ -33,7 +33,7 @@ function Contact() {
               <MdOutlineMarkEmailUnread className="text-2xl font-bold" />
             </div>
             <h1 className="text-2xl font-bold">Email Us</h1>
-            <h2 className="text-xl font-semibold">+91 9344245993</h2>
+            <h2 className="text-xl font-semibold">kmanoj71737@gmail.com</h2>
           </div>
           <div className="text-center space-y-2 border shadow-lg rounded-xl p-5 w-[30rem]">
             <div className="flex items-center justify-center">

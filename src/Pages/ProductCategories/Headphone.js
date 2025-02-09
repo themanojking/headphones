@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar";
 import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { headphones } from "../../Utility/data";
+import Footer from "../../Components/Footer";
 
 function Headphone() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function Headphone() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

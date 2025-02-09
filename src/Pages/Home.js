@@ -8,6 +8,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { FaCcAmazonPay } from "react-icons/fa6";
 import { Ri24HoursLine } from "react-icons/ri";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ function Home() {
   const addcart = (product) => {
     dispatch(add(product));
   };
+
+  const ScrollToTop = () => {
+    window.scrollTo(0,0)
+  }
 
   return (
     <>
@@ -52,19 +57,21 @@ function Home() {
         <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 md:gap-20 mt-10 ">
           {top.map((item) => (
             <div key={item.id} className=" w-40 space-y-5 ">
-              <img
-                src={item.img}
-                alt={item.alt}
-                className="border shadow-lg"
-              ></img>
-              <h1 className="flex justify-center text-2xl font-bold">
-                {item.tittle}
-              </h1>
+              <Link to={item.link}>
+                <img
+                  src={item.img}
+                  alt={item.alt}
+                  className="border shadow-lg"
+                ></img>
+                <h1 className="flex justify-center text-2xl font-bold mt-5">
+                  {item.tittle}
+                </h1>
+              </Link>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap md:flex-nowrap justify-between py-20">
+        <div className="flex flex-wrap md:flex-nowrap justify-between py-20 ">
           <div className="text-4xl md:text-5xl lg:text-7xl  font-bold">
             <h1>Latest Products</h1>
           </div>
@@ -74,7 +81,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="flex flex-wrap  justify-center gap-10 ">
+        <div className="flex flex-wrap  justify-center gap-10  ">
           {latest.map((product) => (
             <div
               key={product.id}
@@ -83,7 +90,7 @@ function Home() {
               <img
                 src={product.img}
                 alt={product.alt}
-                className="rounded-t-xl"
+                className="rounded-t-xl "
               ></img>
               <div className="px-3 p-3">
                 <h1 className="text-3xl font-bold">{product.tittle}</h1>
@@ -112,10 +119,12 @@ function Home() {
                 A joystick provides intuitive and precise control for gaming and
                 simulations.
               </h3>
-              <div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500">
-                <h3>View Product</h3>
-                <FaArrowRight />
-              </div>
+              <Link to="/joysticks">
+                <div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500" onClick={ScrollToTop}>
+                  <h3>View Product</h3>
+                  <FaArrowRight />
+                </div>
+              </Link>
             </div>
             <div className="flex justify-center">
               <img
@@ -133,10 +142,11 @@ function Home() {
                 Smartwatches connect you to notifications and health tracking
                 all on your wrist.
               </h3>
-              <div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500 ">
+              <Link to="/smartwatchs"><div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500 " onClick={ScrollToTop}>
                 <h3>View Product</h3>
                 <FaArrowRight />
               </div>
+              </Link>
             </div>
             <div className="flex justify-center">
               <img

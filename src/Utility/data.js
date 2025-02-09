@@ -1,29 +1,35 @@
 
+
 export const top =[
     {
         id:'1',
         img:'/Assets/joystick.jpg',
         tittle:'Joysticks',
+        link:'/joysticks',
     },
     {
         id:'2',
         img:'/Assets/smart.avif',
         tittle:'Smart Watchs',
+        link:'/smartwatchs',
     },
     {
         id:'3',
         img:'/Assets/headphone.avif',
         tittle:'Headphones',
+        link:'/headphones',
     },
     {
         id:'4',
         img:'/Assets/audio.avif',
         tittle:'Audio Devices',
+        link:'/audiospeakers',
     },
     {
         id:'5',
         img:'/Assets/virtual.avif',
         tittle:'virtual Reality',
+        link:'/virtualrealitys',
     },
 ];
 
@@ -205,32 +211,32 @@ export const joysticks =[
     {
         id:'32',
         img:'/Assets/joystick1.avif',
-        tittle:'Smart Speaker',
+        tittle:'Landscape Joystick',
         price:'$99.00',
     },
     {
         id:'33',
         img:'/Assets/joystick2.avif',
-        tittle:'Ear Muffs',
+        tittle:'Playstation Joystick',
         price:'$79.00',
     },
     {
         id:'34',
         img:'/Assets/joystick3.avif',
-        tittle:'Airpods Pro',
+        tittle:'Lighting Joystick',
         price:'$130.00',
     },
     {
         id:'35',
         img:'/Assets/joystick4.avif',
-        tittle:'Airpods Pro',
+        tittle:'Lighting Joystick',
         price:'$130.00',
     },
     {
         id:'36',
         img:'/Assets/joystick5.jpg',
-        tittle:'Airpods Pro',
-        price:'$130.00',
+        tittle:'Single Hand',
+        price:'$50.00',
     },
 ];
 
@@ -238,31 +244,31 @@ export const smartwatchs =[
     {
         id:'37',
         img:'/Assets/smart1.avif',
-        tittle:'Smart Speaker',
+        tittle:'Smart Watch',
         price:'$99.00',
     },
     {
         id:'38',
         img:'/Assets/smart2.jpg',
-        tittle:'Ear Muffs',
+        tittle:'Boat',
         price:'$79.00',
     },
     {
         id:'39',
         img:'/Assets/smart3.jpg',
-        tittle:'Airpods Pro',
+        tittle:'Vertical',
         price:'$130.00',
     },
     {
         id:'40',
         img:'/Assets/smart4.avif',
-        tittle:'Airpods Pro',
+        tittle:'Connected ',
         price:'$130.00',
     },
     {
         id:'41',
         img:'/Assets/smart5.avif',
-        tittle:'Airpods Pro',
+        tittle:'Normal',
         price:'$130.00',
     },
 ];
@@ -271,31 +277,31 @@ export const headphones = [
     {
         id:'42',
         img:'/Assets/headphone2.avif',
-        tittle:'Smart Speaker',
+        tittle:'Head Phone',
         price:'$99.00',
     },
     {
         id:'43',
         img:'/Assets/headphone3.avif',
-        tittle:'Ear Muffs',
+        tittle:'Boat',
         price:'$79.00',
     },
     {
         id:'44',
         img:'/Assets/headphone4.avif',
-        tittle:'Airpods Pro',
+        tittle:'Wired',
         price:'$130.00',
     },
     {
         id:'45',
         img:'/Assets/headphone5.jpg',
-        tittle:'Airpods Pro',
+        tittle:'Samsung',
         price:'$130.00',
     },
     {
         id:'46',
         img:'/Assets/headphone6.avif',
-        tittle:'Airpods Pro',
+        tittle:'Neck Band',
         price:'$130.00',
     },
 ];
@@ -304,31 +310,31 @@ export const audiospeakers = [
     {
         id:'47',
         img:'/Assets/speaker1.avif',
-        tittle:'Smart Speaker',
+        tittle:'Audio Speaker',
         price:'$99.00',
     },
     {
         id:'48',
         img:'/Assets/speaker2.avif',
-        tittle:'Ear Muffs',
+        tittle:'Single Piece',
         price:'$79.00',
     },
     {
         id:'49',
         img:'/Assets/speaker3.avif',
-        tittle:'Airpods Pro',
+        tittle:'Full Setup',
         price:'$130.00',
     },
     {
         id:'50',
         img:'/Assets/speaker4.avif',
-        tittle:'Airpods Pro',
+        tittle:'Bluetooth',
         price:'$130.00',
     },
     {
         id:'51',
         img:'/Assets/speaker5.avif',
-        tittle:'Airpods Pro',
+        tittle:'Trio Pro',
         price:'$130.00',
     },
 ];
@@ -337,31 +343,31 @@ export const virtualrealitys = [
     {
         id:'52',
         img:'/Assets/virtual1.jpg',
-        tittle:'Smart Speaker',
+        tittle:'Virtual ',
         price:'$99.00',
     },
     {
         id:'53',
         img:'/Assets/virtual2.avif',
-        tittle:'Ear Muffs',
+        tittle:'Duo',
         price:'$79.00',
     },
     {
         id:'54',
         img:'/Assets/virtual3.jpg',
-        tittle:'Airpods Pro',
+        tittle:'Gaming Setup',
         price:'$130.00',
     },
     {
         id:'55',
         img:'/Assets/virtual4.avif',
-        tittle:'Airpods Pro',
+        tittle:'Mind Game',
         price:'$130.00',
     },
     {
         id:'56',
         img:'/Assets/virtual5.jpg',
-        tittle:'Airpods Pro',
+        tittle:'Single',
         price:'$130.00',
     },
 ]

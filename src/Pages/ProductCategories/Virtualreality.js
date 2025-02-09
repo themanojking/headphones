@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar";
 import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import {  virtualrealitys } from "../../Utility/data";
+import Footer from "../../Components/Footer";
 
 function Virtualreality() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function Virtualreality() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

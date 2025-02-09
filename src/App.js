@@ -11,9 +11,6 @@ import Headphone from './Pages/ProductCategories/Headphone';
 import Audiospeaker from './Pages/ProductCategories/Audiospeaker';
 import Virtualreality from './Pages/ProductCategories/Virtualreality';
 
-// import { Provider } from 'react-redux';
-// import store from './Redux/Store';
-
 
 function App() {
   return (

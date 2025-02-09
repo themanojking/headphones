@@ -4,6 +4,7 @@ import Navbar from "../../Components/Navbar";
 import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import {  smartwatchs } from "../../Utility/data";
+import Footer from "../../Components/Footer";
 
 
 function SmartWatch() {
@@ -49,6 +50,7 @@ function SmartWatch() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }
