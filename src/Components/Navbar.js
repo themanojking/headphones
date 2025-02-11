@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaBars, FaTimes, FaGamepad, FaClock, FaHeadphones, FaVolumeUp, FaVrCardboard, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { IoHeadsetSharp } from "react-icons/io5";
 import { useSelector } from 'react-redux';
+import { BsPersonFillAdd } from "react-icons/bs";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,7 @@ function Nav() {
           <Link to='/'>Home</Link>
 
          
-          <div className='relative cursor-pointer'>
+          <div className='relative cursor-pointer '>
             <button 
               className='flex items-center gap-3'
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -51,6 +52,7 @@ function Nav() {
 
           <Link to='/about'>About</Link>
           <Link to='/contact'>Contact</Link>
+          <Link to="/signup"><BsPersonFillAdd  className='flex items-center text-3xl'/></Link>
           <Link to='/cart'>
             <button className='px-3 py-2 text-white bg-red-600 rounded-lg hover:bg-black'>
               Cart ({cartproducts.length})

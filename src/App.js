@@ -10,6 +10,8 @@ import SmartWatch from './Pages/ProductCategories/SmartWatch';
 import Headphone from './Pages/ProductCategories/Headphone';
 import Audiospeaker from './Pages/ProductCategories/Audiospeaker';
 import Virtualreality from './Pages/ProductCategories/Virtualreality';
+import Login from './Pages/Login/Login';
+import Newsign from './Pages/Login/Newsign';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
            <Route path='/headphones' element={<Headphone />}></Route>
            <Route path='/audiospeakers' element={<Audiospeaker />}></Route>
            <Route path='/virtualrealitys' element={<Virtualreality />}></Route>
+           <Route path='/loginin' element={<Login />}></Route>
+           <Route path='/signup' element={<Newsign />}></Route>
          </Routes>
       </BrowserRouter>
       </div>
