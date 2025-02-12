@@ -6,18 +6,25 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Components/Firebase";
+import { useNavigate } from "react-router-dom";
+import { HiEye } from "react-icons/hi2";
+import { HiEyeOff } from "react-icons/hi";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const navigate = useNavigate();
+  const [showPass,setShowPass] = useState(false)
 
   const validate = () => {
     let newErrors = {};
     if (!formData.email.trim()) newErrors.email = "Email is required!";
-    else if (!emailPattern.test(formData.email)) newErrors.email = "Invalid email format!";
+    else if (!emailPattern.test(formData.email))
+      newErrors.email = "Invalid email format!";
     if (!formData.password) newErrors.password = "Password is required!";
-    else if (formData.password.length < 6) newErrors.password = "Password must be at least 6 characters!";
+    else if (formData.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters!";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -29,21 +36,46 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
-      Swal.fire("Success!", "Login Successful", "success");
-      console.log("User Logged In:", userCredential.user);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+  
+      Swal.fire({
+        title: "Success!",
+        text: `Welcome, ${userCredential.user.email}!`,
+        icon: "success",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "OK",
+      });
+  
+      navigate("/");
       setFormData({ email: "", password: "" });
       setErrors({});
     } catch (error) {
-      console.log("Firebase Error:", error);
-      let errorMessage = "Something went wrong. Please try again.";
-      if (error.code === "auth/user-not-found") errorMessage = "No account found. Please sign up.";
-      else if (error.code === "auth/wrong-password") errorMessage = "Incorrect password.";
-      else if (error.code === "auth/invalid-email") errorMessage = "Invalid email format.";
-      Swal.fire("Error!", errorMessage, "error");
+      console.error("Firebase Error:", error); // Log full error for debugging
+  
+      const errorMessages = {
+        "auth/email-not-found": "No account found. Please sign up.",
+        "auth/wrong-password": "Incorrect password. Try again.",
+        "auth/invalid-email": "Invalid email format.",
+        "auth/too-many-requests": "Too many failed attempts. Try again later.",
+      };
+  
+      const errorMessage =
+        errorMessages[error?.code] || "Something went wrong. Please try again."
+
+      Swal.fire({
+        title: "Error!",
+        text: errorMessage,
+        icon: "error",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "OK",
+      });
     }
   };
-
+  
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 px-4">
@@ -53,8 +85,13 @@ function Login() {
         </div>
 
         {/* Login Form */}
-        <form className="bg-white p-6 md:p-8 rounded-lg shadow-2xl w-full max-w-md" onSubmit={handleSubmit}>
-          <h2 className="text-2xl font-bold text-center text-gray-700 mb-5">Login Form</h2>
+        <form
+          className="bg-white p-6 md:p-8 rounded-lg shadow-2xl w-full max-w-md"
+          onSubmit={handleSubmit}
+        >
+          <h2 className="text-2xl font-bold text-center text-gray-700 mb-5">
+            Login Form
+          </h2>
 
           {/* Email Field */}
           <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-md shadow-sm">
@@ -64,23 +101,35 @@ function Login() {
               placeholder="Email"
               className="bg-transparent outline-none w-full text-gray-800"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
           </div>
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
 
           {/* Password Field */}
           <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-md shadow-sm mt-4">
             <FaLock className="text-gray-500" />
             <input
-              type="password"
+              type={showPass ? "text" : "password"}
               placeholder="Password"
               className="bg-transparent outline-none w-full text-gray-800"
               value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
             />
+            <button type="button" onClick={() => setShowPass(!showPass)} className="text-2xl">
+            {showPass ? <HiEyeOff /> : <HiEye />}
+            </button>
+            
           </div>
-          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+          )}
 
           {/* Login Button */}
           <button
@@ -94,7 +143,10 @@ function Login() {
           <p className="text-center text-gray-600 mt-4">
             Don't have an account?
             <Link to="/signup">
-              <span className="font-bold hover:underline text-blue-500"> Sign Up</span>
+              <span className="font-bold hover:underline text-blue-500">
+                {" "}
+                Sign Up
+              </span>
             </Link>
           </p>
         </form>
