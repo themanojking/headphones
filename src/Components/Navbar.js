@@ -96,6 +96,7 @@ function Nav() {
 
           <Link to='/about' onClick={() => setIsOpen(false)}>About</Link>
           <Link to='/contact' onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/signup"><BsPersonFillAdd  className='flex items-center text-3xl'/></Link>
           <Link to='/cart' onClick={() => setIsOpen(false)}>
             <button className='px-3 py-2 text-white bg-red-600 rounded-lg hover:bg-black'>
               Cart ({cartproducts.length})
