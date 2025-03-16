@@ -6,6 +6,7 @@ import { add } from "../Redux/cartSlice";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 
+
 function Shop() {
   const dispatch = useDispatch();
 
@@ -90,6 +91,7 @@ function Shop() {
                   ></img>
                   <div className="px-3 p-3">
                     <h1 className="text-3xl font-bold">{product.tittle}</h1>
+                    
                     <h3 className="text-xl font-semibold ">
                       {product.price} USD
                     </h3>

@@ -15,7 +15,7 @@ function Login() {
   const [errors, setErrors] = useState({});
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const navigate = useNavigate();
-  const [showPass,setShowPass] = useState(false)
+  const [showPass, setShowPass] = useState(false);
 
   const validate = () => {
     let newErrors = {};
@@ -41,7 +41,7 @@ function Login() {
         formData.email,
         formData.password
       );
-  
+
       Swal.fire({
         title: "Success!",
         text: `Welcome, ${userCredential.user.email}!`,
@@ -49,33 +49,20 @@ function Login() {
         confirmButtonColor: "#3085d6",
         confirmButtonText: "OK",
       });
-  
-      navigate("/");
+
+      navigate("/home");
       setFormData({ email: "", password: "" });
       setErrors({});
     } catch (error) {
-      console.error("Firebase Error:", error); // Log full error for debugging
-  
-      const errorMessages = {
-        "auth/email-not-found": "No account found. Please sign up.",
-        "auth/wrong-password": "Incorrect password. Try again.",
-        "auth/invalid-email": "Invalid email format.",
-        "auth/too-many-requests": "Too many failed attempts. Try again later.",
-      };
-  
-      const errorMessage =
-        errorMessages[error?.code] || "Something went wrong. Please try again."
-
       Swal.fire({
-        title: "Error!",
-        text: errorMessage,
-        icon: "error",
-        confirmButtonColor: "#d33",
-        confirmButtonText: "OK",
+        icon: 'error',
+        title: 'Login Failed',
+        text: "No account found!Please signup first",
+        showConfirmButton: true,
       });
     }
   };
-  
+
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-indigo-600 px-4">
@@ -114,7 +101,13 @@ function Login() {
           <div className="flex items-center gap-2 bg-gray-100 p-3 rounded-md shadow-sm mt-4">
             <FaLock className="text-gray-500" />
             <input
-              type={showPass ? "text" : "password"}
+              type={
+                formData.password
+                  ? showPass
+                    ? "text"
+                    : "password"
+                  : "password"
+              }
               placeholder="Password"
               className="bg-transparent outline-none w-full text-gray-800"
               value={formData.password}
@@ -122,11 +115,17 @@ function Login() {
                 setFormData({ ...formData, password: e.target.value })
               }
             />
-            <button type="button" onClick={() => setShowPass(!showPass)} className="text-2xl">
-            {showPass ? <HiEyeOff /> : <HiEye />}
-            </button>
-            
+            {formData.password && (
+              <button
+                type="button"
+                onClick={() => setShowPass(!showPass)}
+                className="text-2xl"
+              >
+                {showPass ? <HiEyeOff /> : <HiEye />}
+              </button>
+            )}
           </div>
+
           {errors.password && (
             <p className="text-red-500 text-sm mt-1">{errors.password}</p>
           )}

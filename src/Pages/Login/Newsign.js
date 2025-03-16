@@ -16,8 +16,8 @@ function Newsign() {
   });
   const [errors, setErrors] = useState({});
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const [showPass,setShowPass] = useState(false);
-  const [showConPass,setConPass] = useState(false);
+  const [showPass, setShowPass] = useState(false);
+  const [showConPass, setConPass] = useState(false);
   const navigate = useNavigate();
 
   const validate = () => {
@@ -46,19 +46,46 @@ function Newsign() {
       console.log("User Registered Successfully:", userCredential.user);
       Swal.fire("Success!", "User Created Successfully!", "success");
       setFormData({ email: "", password: "", confirmpassword: "" });
-      navigate("/loginin");
-    } catch (error) {
-      console.error("Firebase Error:", error.code, error.message);
-      let errorMessage = "Something went wrong!";
-      if (error.code === "auth/email-already-in-use")
-        errorMessage = "This email is already in use. Please try logging in.";
-      else if (error.code === "auth/invalid-email")
-        errorMessage = "Invalid email format!";
-      else if (error.code === "auth/weak-password")
-        errorMessage = "Password should be at least 6 characters!";
-      Swal.fire("Error!", errorMessage, "error");
+      navigate("/");
     }
-  };
+  //  catch (error) {
+  //     console.error("Firebase Error:", error.code, error.message);
+  //     let errorMessage = "Something went wrong!";
+  //     if (error.code === "auth/email-already-in-use")
+  //       errorMessage = "This email is already in use. Please try logging in.";
+  //     else if (error.code === "auth/invalid-email")
+  //       errorMessage = "Invalid email format!";
+  //     else if (error.code === "auth/weak-password")
+  //       errorMessage = "Password should be at least 6 characters!";
+  //     errorMessage = "Password Should be one uppercase";
+  //     Swal.fire("Error!", errorMessage, "error");
+  //   }
+  // };
+    catch (error) {
+      console.error("Firebase Error:",error);
+      let errorMessage = "something went wrong";
+
+      if(error.code) {
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            errorMessage = "this email is already in use.please try another email.";
+            break;
+          case "auth/invalid-email":
+            errorMessage = "invalid email format";
+            break;
+          case "auth/weak-password":
+            errorMessage = "Password should be at least 6 characters";
+            break;
+          default:
+             errorMessage= error.message ;
+        }
+      }
+        else {
+          errorMessage = "An unexpected error occured.Please try again"
+        }
+        Swal.fire("Error!",errorMessage,"error");
+      }
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,7 +125,9 @@ function Newsign() {
         <div className="flex items-center bg-gray-100 p-3 rounded-lg shadow-sm">
           <BsLockFill className="text-gray-500" />
           <input
-            type={showPass ? "text" : "password"  }
+            type={
+              formData.password ? (showPass ? "text" : "password") : "password"
+            }
             placeholder="Password"
             className="w-full bg-transparent outline-none pl-3 text-gray-700"
             value={formData.password}
@@ -106,9 +135,15 @@ function Newsign() {
               setFormData({ ...formData, password: e.target.value })
             }
           />
-          <button type="button" onClick={() => setShowPass(!showPass)} className="text-2xl">
-            {showPass ? <HiEyeOff /> : <HiEye />}
-          </button>
+          {formData.password && (
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="text-2xl"
+            >
+              {showPass ? <HiEyeOff /> : <HiEye />}
+            </button>
+          )}
         </div>
         {errors.password && (
           <p className="text-red-500 text-sm">{errors.password}</p>
@@ -118,7 +153,13 @@ function Newsign() {
         <div className="flex items-center bg-gray-100 p-3 rounded-lg shadow-sm">
           <BsLockFill className="text-gray-500" />
           <input
-            type={showConPass ? "text" : "password"}
+            type={
+              formData.confirmpassword
+                ? showConPass
+                  ? "text"
+                  : "password"
+                : "password"
+            }
             placeholder="Confirm Password"
             className="w-full bg-transparent outline-none pl-3 text-gray-700"
             value={formData.confirmpassword}
@@ -126,9 +167,15 @@ function Newsign() {
               setFormData({ ...formData, confirmpassword: e.target.value })
             }
           />
-           <button type="button" onClick={() => setConPass(!showConPass)} className="text-2xl">
-            {showConPass ? <HiEyeOff /> : <HiEye />}
-          </button>
+          {formData.confirmpassword && (
+            <button
+              type="button"
+              onClick={() => setConPass(!showConPass)}
+              className="text-2xl"
+            >
+              {showConPass ? <HiEyeOff /> : <HiEye />}
+            </button>
+          )}
         </div>
         {errors.confirmpassword && (
           <p className="text-red-500 text-sm">{errors.confirmpassword}</p>
@@ -145,7 +192,7 @@ function Newsign() {
         {/* Login Link */}
         <p className="text-center text-gray-600 mt-3">
           Already have an account?{" "}
-          <Link to="/loginin">
+          <Link to="/">
             <span className="text-blue-500 font-semibold hover:underline">
               Login
             </span>

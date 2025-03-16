@@ -9,6 +9,8 @@ import { FaCcAmazonPay } from "react-icons/fa6";
 import { Ri24HoursLine } from "react-icons/ri";
 import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
+import Additem from "../Components/Additem";
+import { MdVerified } from "react-icons/md";
 
 function Home() {
   const dispatch = useDispatch();
@@ -18,8 +20,8 @@ function Home() {
   };
 
   const ScrollToTop = () => {
-    window.scrollTo(0,0)
-  }
+    window.scrollTo(0, 0);
+  };
 
   return (
     <>
@@ -54,9 +56,13 @@ function Home() {
           </h1>
         </div>
 
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 md:gap-20 mt-10 " >
+        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-10 md:gap-20 mt-10 ">
           {top.map((item) => (
-            <div key={item.id} className=" w-40 space-y-5 " onClick={ScrollToTop}>
+            <div
+              key={item.id}
+              className=" w-40 space-y-5 "
+              onClick={ScrollToTop}
+            >
               <Link to={item.link}>
                 <img
                   src={item.img}
@@ -94,6 +100,11 @@ function Home() {
               ></img>
               <div className="px-3 p-3">
                 <h1 className="text-3xl font-bold">{product.tittle}</h1>
+                <Additem />
+                <div className="flex items-center gap-1">
+                  <MdVerified />
+                  <h4 className="text-lg font-semibold">{product.company}</h4>
+                </div>
                 <h3 className="text-xl font-semibold ">{product.price} USD</h3>
                 <div className="flex justify-end">
                   <button
@@ -120,7 +131,10 @@ function Home() {
                 simulations.
               </h3>
               <Link to="/joysticks">
-                <div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500" onClick={ScrollToTop}>
+                <div
+                  className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500"
+                  onClick={ScrollToTop}
+                >
                   <h3>View Product</h3>
                   <FaArrowRight />
                 </div>
@@ -142,10 +156,14 @@ function Home() {
                 Smartwatches connect you to notifications and health tracking
                 all on your wrist.
               </h3>
-              <Link to="/smartwatchs"><div className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500 " onClick={ScrollToTop}>
-                <h3>View Product</h3>
-                <FaArrowRight />
-              </div>
+              <Link to="/smartwatchs">
+                <div
+                  className="flex items-center justify-center gap-2 text-xl font-bold hover:text-red-500 "
+                  onClick={ScrollToTop}
+                >
+                  <h3>View Product</h3>
+                  <FaArrowRight />
+                </div>
               </Link>
             </div>
             <div className="flex justify-center">
