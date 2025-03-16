@@ -12,8 +12,8 @@ import {
   FaChevronUp,
 } from "react-icons/fa";
 import { IoHeadsetSharp } from "react-icons/io5";
-import {  useSelector } from "react-redux";
-import {FaCartShopping } from 'react-icons/fa6'
+import { useSelector } from "react-redux";
+import { FaCartShopping } from "react-icons/fa6";
 
 import { BsPersonFillAdd } from "react-icons/bs";
 
@@ -21,8 +21,6 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartproducts = useSelector((state) => state.cart);
-
-  
 
   const ScrollToTop = () => {
     window.scrollTo(0, 0);
@@ -110,12 +108,12 @@ function Nav() {
           <Link to="/signup">
             <BsPersonFillAdd className="flex items-center text-3xl" />
           </Link>
-          <Link to='/cart'>
-          <div className='flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-2xl'>
-            <FaCartShopping className='text-2xl' />
-            <span>Cart ({cartproducts.length})</span>
-          </div>
-        </Link>
+          <Link to="/cart">
+            <div className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-2xl">
+              <FaCartShopping className="text-2xl" />
+              <span>Cart ({cartproducts.length})</span>
+            </div>
+          </Link>
         </div>
 
         <button
@@ -192,12 +190,17 @@ function Nav() {
           <Link to="/contact" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
-          {/* <Link to="/signup"><BsPersonFillAdd  className='flex items-center text-3xl'/></Link>
-          <Link to='/cart' onClick={() => setIsOpen(false)}>
-            <button className='px-3 py-2 text-white bg-red-600 rounded-lg hover:bg-black'>
-              Cart ({cartproducts.length})
-            </button>
-          </Link> */}
+          <div className="flex items-center gap-5">
+            <Link to="/signup">
+              <BsPersonFillAdd className="flex items-center text-3xl" />
+            </Link>
+            <Link to="/cart">
+              <div className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-2xl">
+                <FaCartShopping className="text-2xl" />
+                <span>Cart ({cartproducts.length})</span>
+              </div>
+            </Link>
+          </div>
         </div>
       )}
     </div>
