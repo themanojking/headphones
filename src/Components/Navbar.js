@@ -197,7 +197,7 @@ function Nav() {
           <Link to="/contact" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
-          <div className="flex items-center gap-5">
+          {/* <div className="flex items-center gap-5">
             <Link to="/cart">
               <div className="relative">
                 <div>
@@ -213,7 +213,7 @@ function Nav() {
             <Link to="/signup">
               <BsPersonFillAdd className="flex items-center text-3xl" />
             </Link>
-          </div>
+          </div> */}
         </div>
       )}
     </div>
