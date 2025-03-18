@@ -13,9 +13,10 @@ import {
 } from "react-icons/fa";
 import { IoHeadsetSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
-import { FaCartShopping } from "react-icons/fa6";
+
 
 import { BsPersonFillAdd } from "react-icons/bs";
+import { RiShoppingCart2Line } from "react-icons/ri";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -105,14 +106,20 @@ function Nav() {
         </div>
 
         <div className="flex items-center gap-5">
+          <Link to="/cart">
+            <div className="relative">
+              <div>
+                <RiShoppingCart2Line className="text-3xl " />
+              </div>
+              <div className="">
+                <span className="absolute -right-2 -top-2  bg-red-500 text-white px-1 rounded-full">
+                  {cartproducts.length}
+                </span>
+              </div>
+            </div>
+          </Link>
           <Link to="/signup">
             <BsPersonFillAdd className="flex items-center text-3xl" />
-          </Link>
-          <Link to="/cart">
-            <div className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-2xl">
-              <FaCartShopping className="text-2xl" />
-              <span>Cart ({cartproducts.length})</span>
-            </div>
           </Link>
         </div>
 
@@ -191,14 +198,20 @@ function Nav() {
             Contact
           </Link>
           <div className="flex items-center gap-5">
+            <Link to="/cart">
+              <div className="relative">
+                <div>
+                  <RiShoppingCart2Line className="text-3xl " />
+                </div>
+                <div className="">
+                  <span className="absolute -right-2 -top-2  bg-red-500 text-white px-1 rounded-full">
+                    {cartproducts.length}
+                  </span>
+                </div>
+              </div>
+            </Link>
             <Link to="/signup">
               <BsPersonFillAdd className="flex items-center text-3xl" />
-            </Link>
-            <Link to="/cart">
-              <div className="flex items-center gap-2 px-3 py-2 bg-blue-500 text-white rounded-2xl">
-                <FaCartShopping className="text-2xl" />
-                <span>Cart ({cartproducts.length})</span>
-              </div>
             </Link>
           </div>
         </div>

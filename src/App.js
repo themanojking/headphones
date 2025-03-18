@@ -34,6 +34,7 @@ function App() {
            <Route path='/signup' element={<Newsign />}></Route>
          </Routes>
       </BrowserRouter>
+       
       </div>
     </>
   );

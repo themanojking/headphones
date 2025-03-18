@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { add } from "../Redux/cartSlice";
 import { Link } from "react-router-dom";
-import Additem from "./Additem";
 
 function Footer() {
   const dispatch = useDispatch();
@@ -124,7 +123,7 @@ function Footer() {
         <p className="mt-4 text-lg opacity-75 ">© 2025 Earphone. All rights reserved || Design and Developed By Manojkumar</p>
       </div>
 
-      <Additem />
+     
     </footer>
   );
 }
