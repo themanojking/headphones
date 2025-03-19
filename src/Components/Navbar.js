@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaBars,
   FaTimes,
@@ -13,8 +13,7 @@ import {
 } from "react-icons/fa";
 import { IoHeadsetSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
-
-
+import { MdPersonOff } from "react-icons/md";
 import { BsPersonFillAdd } from "react-icons/bs";
 import { RiShoppingCart2Line } from "react-icons/ri";
 
@@ -26,6 +25,13 @@ function Nav() {
   const ScrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="fixed w-full bg-white shadow-md z-50">
@@ -121,6 +127,9 @@ function Nav() {
           <Link to="/signup">
             <BsPersonFillAdd className="flex items-center text-3xl" />
           </Link>
+          <Link to="/">
+             <MdPersonOff onClick={handleLogout} className="flex items-center text-3xl"/>
+          </Link>
         </div>
 
         <button
@@ -196,6 +205,9 @@ function Nav() {
           </Link>
           <Link to="/contact" onClick={() => setIsOpen(false)}>
             Contact
+          </Link>
+          <Link to="/">
+             <MdPersonOff onClick={handleLogout} className="flex items-center text-3xl"/>
           </Link>
           {/* <div className="flex items-center gap-5">
             <Link to="/cart">

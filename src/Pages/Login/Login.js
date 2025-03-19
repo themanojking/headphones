@@ -34,6 +34,8 @@ function Login() {
     if (validate()) handleLogin();
   };
 
+
+
   const handleLogin = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -41,6 +43,11 @@ function Login() {
         formData.email,
         formData.password
       );
+
+      const user = userCredential.user;
+      const token = await user.getIdToken();
+
+      localStorage.setItem("token",token);
 
       Swal.fire({
         title: "Success!",
