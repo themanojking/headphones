@@ -7,6 +7,7 @@ import { joysticks } from "../../Utility/data";
 import Footer from "../../Components/Footer";
 import Starrate from "../../Components/Starrate";
 import { MdVerified } from "react-icons/md";
+import Additem from "../../Components/Additem";
 
 function Joysticks() {
   const dispatch = useDispatch();
@@ -36,13 +37,25 @@ function Joysticks() {
               ></img>
               <div className="px-3 p-3">
                 <h1 className="text-3xl font-bold">{product.tittle}</h1>
-                <div className="flex items-center gap-1 text-red-600 ">
+                <div className="flex justify-between items-center p-1">
+                  <div>
+                  <div className="flex items-center gap-1 text-red-600 ">
                   <MdVerified />
                   <h4 className="text-lg font-bold">{product.company}</h4>
                 </div>
-                <h3 className="text-xl font-semibold ">{product.price} USD</h3>
+                <h3 className="text-xl font-semibold ">{product.price} Rs</h3>
                 <div className="mt-2">
                   <Starrate rating={4} />
+                </div>
+                  </div>
+                  <div>
+                  <div className="flex items-center gap-4 p-2">
+                  <div className="text-xl font-semibold">Qty :</div>
+                  <div>
+                    <Additem />
+                  </div>
+                </div> 
+                  </div>
                 </div>
                 <div className="flex justify-end">
                   <button
