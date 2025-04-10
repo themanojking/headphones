@@ -20,10 +20,10 @@ function Additem() {
   return (
   <>
     
-    <div className='flex items-center gap-5 mt-3 p-2'>
+    <div className='flex items-center gap-3  '>
     <GrSubtractCircle onClick={Decrease} className='cursor-pointer text-2xl' />
-    <div className='bg-red-600 text-white text-xl rounded-full p-2 '>
-     <button className='h-10 w-10'>{count}</button>
+    <div className='bg-red-600 text-white text-xl rounded-xl p-1.5 '>
+     <button className=''>{count}</button>
     </div>
     <GrAddCircle onClick={Increase} className='cursor-pointer text-2xl' />
     </div>

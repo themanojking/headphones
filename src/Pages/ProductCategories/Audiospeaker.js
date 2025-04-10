@@ -5,6 +5,8 @@ import { add } from "../../Redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { audiospeakers } from "../../Utility/data";
 import Footer from "../../Components/Footer";
+import { MdVerified } from "react-icons/md";
+import Starrate from "../../Components/Starrate"
 
 function Audiospeaker() {
   const dispatch = useDispatch();
@@ -17,7 +19,10 @@ function Audiospeaker() {
     <>
       <Navbar />
       <div className="text-center py-28">
-        <Title title="Audio Speakers" subtitle="Product Categories -> Audiospeakers" />
+        <Title
+          title="Audio Speakers"
+          subtitle="Product Categories -> Audiospeakers"
+        />
       </div>
 
       <div>
@@ -34,7 +39,14 @@ function Audiospeaker() {
               ></img>
               <div className="px-3 p-3">
                 <h1 className="text-3xl font-bold">{product.tittle}</h1>
+                <div className="flex items-center gap-1 text-red-600 ">
+                  <MdVerified />
+                  <h4 className="text-lg font-bold">{product.company}</h4>
+                </div>
                 <h3 className="text-xl font-semibold ">{product.price} USD</h3>
+                <div className="mt-2">
+                  <Starrate rating={4} />
+                </div>
                 <div className="flex justify-end">
                   <button
                     className="px-3 py-2 bg-red-500 text-white font-semibold rounded-lg"

@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../Redux/cartSlice";
+import { clearCart } from "../Redux/cartSlice";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -11,6 +12,10 @@ function Cart() {
   };
 
   const productcart = useSelector((state) => state.cart);
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   return (
     <>
@@ -44,6 +49,33 @@ function Cart() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="flex items-center justify-center gap-20 mt-10">
+          <div>
+            <button
+              className={`px-3 py-2 font-bold rounded ${
+                productcart.length === 0
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-red-600 text-white hover:bg-red-700"
+              }`}
+              onClick={handleClearCart}
+              disabled={productcart.length === 0}
+            >
+              Clear
+            </button>
+          </div>
+          <div>
+            <button
+              className={`px-3 py-2 font-bold rounded ${
+                productcart.length === 0
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-red-600 text-white hover:bg-red-700"
+              }`}
+              disabled={productcart.length === 0}
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
       </div>
     </>

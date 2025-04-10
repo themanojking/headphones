@@ -11,6 +11,7 @@ import Footer from "../Components/Footer";
 import { Link } from "react-router-dom";
 import Additem from "../Components/Additem";
 import { MdVerified } from "react-icons/md";
+import Starrate from "../Components/Starrate";
 
 function Home() {
   const dispatch = useDispatch();
@@ -100,12 +101,28 @@ function Home() {
               ></img>
               <div className="px-3 p-3">
                 <h1 className="text-3xl font-bold">{product.tittle}</h1>
-                <Additem />
-                <div className="flex items-center gap-1">
+                 
+                <div className="flex justify-between items-center p-1">
+                  <div>
+                  <div className="flex items-center gap-1 text-red-600 ">
                   <MdVerified />
-                  <h4 className="text-lg font-semibold">{product.company}</h4>
+                  <h4 className="text-lg font-bold">{product.company}</h4>
                 </div>
-                <h3 className="text-xl font-semibold ">{product.price} USD</h3>
+                <h3 className="text-xl font-semibold ">{product.price} Rs</h3>
+                <div className="mt-2">
+                  <Starrate rating={4} />
+                </div>
+                  </div>
+                  <div>
+                  <div className="flex items-center gap-4 p-2">
+                  <div className="text-xl font-semibold">Qty :</div>
+                  <div>
+                    <Additem />
+                  </div>
+                </div> 
+                  </div>
+                </div>
+                
                 <div className="flex justify-end">
                   <button
                     className="px-3 py-2 bg-red-500 text-white font-semibold rounded-lg"
@@ -177,7 +194,7 @@ function Home() {
         </div>
 
         <div className="flex flex-wrap lg:flex-nowrap justify-center mt-20 lg:gap-20">
-          <div className="lg:py-20 lg:ml-10 space-y-3 ">
+          <div className="lg:py-20 lg:ml-10 space-y-3 lg:mt-20 mt-0">
             <h1 className="text-4xl md:text-6xl font-bold">Most Popular</h1>
             <h3 className="text-xl md:text-2xl font-semibold">
               Popular accessories blend elegant design with robust health and
@@ -199,10 +216,17 @@ function Home() {
                   className="rounded-t-xl"
                 ></img>
                 <div className="px-3 p-3">
-                  <h1 className="text-3xl font-bold">{product.tittle}</h1>
+                  <h1 className="text-2xl font-bold">{product.tittle}</h1>
+                  <div className="flex items-center gap-1 text-red-600 ">
+                  <MdVerified />
+                  <h4 className="text-lg font-bold">{product.company}</h4>
+                </div>
                   <h3 className="text-xl font-semibold ">
                     {product.price} USD
                   </h3>
+                  <div className="mt-2">
+                    <Starrate rating={5} />
+                  </div>
                   <div className="flex justify-end">
                     <button
                       className="px-3 py-2 bg-red-500 text-white font-semibold rounded-lg"
