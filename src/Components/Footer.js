@@ -43,7 +43,7 @@ function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <FaLocationDot className="text-3xl" />
-              <h2 className="text-lg font-medium">Darasuram, Kumbakonam</h2>
+              <h2 className="text-lg font-medium">Dara, Kumbakonam</h2>
             </div>
           </div>
         </div>
