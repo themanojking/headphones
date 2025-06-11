@@ -134,7 +134,7 @@ function Nav() {
 
       {isOpen && (
         <div className="absolute top-16 left-0 w-full bg-white shadow-md flex flex-col items-center gap-5 py-5 text-xl font-bold z-50">
-          <Link to="/home" onClick={() => setIsOpen(false)}>
+          <Link to="/" onClick={() => setIsOpen(false)}>
             Home
           </Link>
 
