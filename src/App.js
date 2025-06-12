@@ -10,7 +10,7 @@ import SmartWatch from './Pages/ProductCategories/SmartWatch';
 import Headphone from './Pages/ProductCategories/Headphone';
 import Audiospeaker from './Pages/ProductCategories/Audiospeaker';
 import Virtualreality from './Pages/ProductCategories/Virtualreality';
-import Protect from './ProtectRouter/Protect';
+
 
 
 function App() {
