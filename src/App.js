@@ -19,7 +19,6 @@ function App() {
     <div className=''>
       <BrowserRouter>
          <Routes>
-           <Route element={<Protect />}>
            <Route path='/' element={<Home />}></Route>
            <Route path='/shop' element={<Shop/>}></Route>
            <Route path='/about' element={<About />}></Route>
@@ -30,8 +29,6 @@ function App() {
            <Route path='/headphones' element={<Headphone />}></Route>
            <Route path='/audiospeakers' element={<Audiospeaker />}></Route>
            <Route path='/virtualrealitys' element={<Virtualreality />}></Route>
-           </Route>
-           
          </Routes>
       </BrowserRouter>
        
